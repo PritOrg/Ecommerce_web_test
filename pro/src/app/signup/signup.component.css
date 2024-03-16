@@ -1,0 +1,10 @@
+.avatar-wrapper {
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.avatar-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}

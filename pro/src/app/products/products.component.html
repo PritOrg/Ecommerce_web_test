@@ -1,0 +1,12 @@
+<section>
+    <div class="container my-5">
+        <header class="mb-4">
+            <h3>New products</h3>
+        </header>
+
+        <div class="row">
+            <app-product-card class="col-lg-3 col-md-6 col-sm-6 " *ngFor="let product of products"
+                [product]="product"></app-product-card>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,248 @@
+<header>
+
+    <!-- Heading -->
+    <div class="bg-primary">
+        <div class="container py-4">
+            <!-- Breadcrumb -->
+            <nav class="d-flex">
+                <h6 class="mb-0">
+                    <a href="" class="text-white-50">H O M E</a>
+                    <span class="text-white-50 mx-2"> > </span>
+                    <a href="" class="text-white-50">S I G N U P</a>
+                </h6>
+            </nav>
+            <!-- Breadcrumb -->
+        </div>
+    </div>
+    <!-- Heading -->
+</header>
+
+<section class="bg-light py-5 bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 mb-4">
+                <div class="card mb-4 border shadow-0">
+                    <div class="p-4 d-flex justify-content-between">
+                        <div class="">
+                            <h5>Have an account?</h5>
+                            <p class="mb-0 text-wrap ">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center flex-column flex-md-row">
+                            <a href="#" class="btn btn-outline-primary me-0 me-md-2 mb-2 mb-md-0 w-100">Register</a>
+                            <a href="#" class="btn btn-primary shadow-0 text-nowrap w-100">Sign in</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="card shadow-2 border">
+                    <div class="p-4">
+                        <h3 class="card-title mb-5">Sign Up</h3>
+                        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-person"></i></span>
+                                        <input type="text" class="form-control" placeholder="First name"
+                                            formControlName="firstName">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-person"></i></span>
+                                        <input type="text" class="form-control" placeholder="Last name"
+                                            formControlName="lastName">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-at"></i></span>
+                                        <input type="text" class="form-control" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-telephone"></i></span>
+                                        <input type="tel" class="form-control" placeholder="Phone"
+                                            formControlName="phoneNumber">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" placeholder="Email"
+                                            formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            formControlName="password">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-calendar"></i></span>
+                                        <input type="date" class="form-control" placeholder="Date of Birth"
+                                            formControlName="dateOfBirth">
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-house"></i></span>
+                                        <input type="text" class="form-control" placeholder="Address"
+                                            formControlName="address.street">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-geo-alt"></i></span>
+                                        <input type="text" class="form-control" placeholder="City"
+                                            formControlName="address.city">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-flag"></i></span>
+                                        <input type="text" class="form-control" placeholder="State"
+                                            formControlName="address.state">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-globe"></i></span>
+                                        <input type="text" class="form-control" placeholder="Country"
+                                            formControlName="address.country">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-geo-alt"></i></span>
+                                        <input type="text" class="form-control" placeholder="Postal Code"
+                                            formControlName="address.postalCode">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter"
+                                            formControlName="newsletter">
+                                        <label class="form-check-label" for="newsletter">Keep me up to date on
+                                            news</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Signup Form -->
+            </div>
+            <div class="col-3">
+                <div class="avatar-wrapper">
+                    <img src="../../assets/images/Designer.png" alt="Avatar" class="avatar-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<footer class="text-center text-lg-start text-muted bg-primary pt-3">
+    <!-- Section: Links  -->
+    <section class="">
+        <div class="container text-center text-md-start pt-4 pb-4">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-12 col-lg-3 col-sm-12 mb-2">
+                    <!-- Content -->
+                    <p class="mt-1 text-white">
+                        © 2024 Copyright: PRIT
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-6 col-sm-4 col-lg-2">
+                    <!-- Links -->
+                    <h6 class="text-uppercase text-white fw-bold mb-2">
+                        Store
+                    </h6>
+                    <ul class="list-unstyled mb-4">
+                        <li><a class="text-white-50" href="#">About us</a></li>
+                        <li><a class="text-white-50" href="#">Find store</a></li>
+                        <li><a class="text-white-50" href="#">Categories</a></li>
+                        <li><a class="text-white-50" href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-6 col-sm-4 col-lg-2">
+                    <!-- Links -->
+                    <h6 class="text-uppercase text-white fw-bold mb-2">
+                        Information
+                    </h6>
+                    <ul class="list-unstyled mb-4">
+                        <li><a class="text-white-50" href="#">Help center</a></li>
+                        <li><a class="text-white-50" href="#">Money refund</a></li>
+                        <li><a class="text-white-50" href="#">Shipping info</a></li>
+                        <li><a class="text-white-50" href="#">Refunds</a></li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-6 col-sm-4 col-lg-2">
+                    <!-- Links -->
+                    <h6 class="text-uppercase text-white fw-bold mb-2">
+                        Support
+                    </h6>
+                    <ul class="list-unstyled mb-4">
+                        <li><a class="text-white-50" href="#">Help center</a></li>
+                        <li><a class="text-white-50" href="#">Documents</a></li>
+                        <li><a class="text-white-50" href="#">Account restore</a></li>
+                        <li><a class="text-white-50" href="#">My orders</a></li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-12 col-sm-12 col-lg-3">
+                    <!-- Links -->
+                    <h6 class="text-uppercase text-white fw-bold mb-2">Newsletter</h6>
+                    <p class="text-white">Stay in touch with latest updates about our products and offers</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control border" placeholder="Email" aria-label="Email"
+                            aria-describedby="button-addon2" />
+                        <button class="btn btn-light border shadow-0" type="button" id="button-addon2"
+                            data-mdb-ripple-color="dark">
+                            Join
+                        </button>
+                    </div>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+</footer>
+<!-- Footer -->
