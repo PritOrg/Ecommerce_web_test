@@ -6,9 +6,9 @@
             <!-- Breadcrumb -->
             <nav class="d-flex">
                 <h6 class="mb-0">
-                    <a href="" class="text-white-50">H O M E</a>
+                    <a routerLink="/" class="text-white-50">H O M E</a>
                     <span class="text-white-50 mx-2"> > </span>
-                    <a href="" class="text-white-50">S I G N U P</a>
+                    <a routerLinkActive="/signup" class="text-white-50">S I G N U P</a>
                 </h6>
             </nav>
             <!-- Breadcrumb -->
@@ -19,22 +19,29 @@
 
 <section class="bg-light py-5 bg-dark">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-8 col-lg-8 mb-4">
-                <div class="card mb-4 border shadow-0">
-                    <div class="p-4 d-flex justify-content-between">
-                        <div class="">
-                            <h5>Have an account?</h5>
-                            <p class="mb-0 text-wrap ">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center flex-column flex-md-row">
-                            <a href="#" class="btn btn-outline-primary me-0 me-md-2 mb-2 mb-md-0 w-100">Register</a>
-                            <a href="#" class="btn btn-primary shadow-0 text-nowrap w-100">Sign in</a>
-                        </div>
+        <div class="col-xl-12 col-lg-12 mb-4">
+            <div class="card mb-4 border shadow-0">
+                <div class="p-4 d-flex justify-content-between">
+                    <div class="">
+                        <h5>Have an account?</h5>
+                        <p class="mb-0 text-wrap ">Unlock a world of possibilities with our community.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center flex-column flex-md-row">
+                        <a routerLinkActive="/signup"
+                            class="btn btn-outline-primary me-0 me-md-2 mb-2 mb-md-0 w-100">Register</a>
+                        <a routerLink="/signin" class="btn btn-primary shadow-0 text-nowrap w-100">Sign in</a>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Signup Form -->
+        <div class="row">
+            <div class="col-3 d-flex align-items-center">
+                <div class="avatar-wrapper">
+                    <img src="../../assets/images/Designer.png" alt="Avatar" class="avatar-img">
+                </div>
+            </div>
+            <div class="col-9">
                 <div class="card shadow-2 border">
                     <div class="p-4">
                         <h3 class="card-title mb-5">Sign Up</h3>
@@ -60,7 +67,8 @@
                                     <div class="input-group">
                                         <span class="input-group-text text-light bg-dark"><i
                                                 class="bi bi-at"></i></span>
-                                        <input type="text" class="form-control" placeholder="Username">
+                                        <input type="text" class="form-control" placeholder="Username"
+                                            formControlName="username">
                                     </div>
                                 </div>
                                 <div class="col-6 mb-3">
@@ -82,6 +90,14 @@
                                 <div class="col-6 mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-calendar"></i></span>
+                                        <input type="date" class="form-control" placeholder="Date of Birth"
+                                            formControlName="dateOfBirth">
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
                                                 class="bi bi-lock"></i></span>
                                         <input type="password" class="form-control" placeholder="Password"
                                             formControlName="password">
@@ -90,49 +106,57 @@
                                 <div class="col-6 mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text text-light bg-dark"><i
-                                                class="bi bi-calendar"></i></span>
-                                        <input type="date" class="form-control" placeholder="Date of Birth"
-                                            formControlName="dateOfBirth">
+                                                class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" placeholder="Confirm Password"
+                                            formControlName="confirmPassword">
+                                    </div>
+                                    <!-- Display error message if passwords don't match -->
+                                    <div *ngIf="signupForm.get('confirmPassword')?.hasError('passwordsNotMatch')"
+                                        class="text-danger">
+                                        Passwords do not match.
                                     </div>
                                 </div>
-                                <div class="col-12 mb-3">
-                                    <div class="input-group">
-                                        <span class="input-group-text text-light bg-dark"><i
-                                                class="bi bi-house"></i></span>
-                                        <input type="text" class="form-control" placeholder="Address"
-                                            formControlName="address.street">
+
+                                <div formGroupName="address">
+                                    <div class="col-12 mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text text-light bg-dark"><i
+                                                    class="bi bi-house"></i></span>
+                                            <input type="text" class="form-control" placeholder="Address"
+                                                formControlName="street">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <div class="input-group">
-                                        <span class="input-group-text text-light bg-dark"><i
-                                                class="bi bi-geo-alt"></i></span>
-                                        <input type="text" class="form-control" placeholder="City"
-                                            formControlName="address.city">
+                                    <div class="col-6 mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text text-light bg-dark"><i
+                                                    class="bi bi-geo-alt"></i></span>
+                                            <input type="text" class="form-control" placeholder="City"
+                                                formControlName="city">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <div class="input-group">
-                                        <span class="input-group-text text-light bg-dark"><i
-                                                class="bi bi-flag"></i></span>
-                                        <input type="text" class="form-control" placeholder="State"
-                                            formControlName="address.state">
+                                    <div class="col-6 mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text text-light bg-dark"><i
+                                                    class="bi bi-flag"></i></span>
+                                            <input type="text" class="form-control" placeholder="State"
+                                                formControlName="state">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <div class="input-group">
-                                        <span class="input-group-text text-light bg-dark"><i
-                                                class="bi bi-globe"></i></span>
-                                        <input type="text" class="form-control" placeholder="Country"
-                                            formControlName="address.country">
+                                    <div class="col-6 mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text text-light bg-dark"><i
+                                                    class="bi bi-globe"></i></span>
+                                            <input type="text" class="form-control" placeholder="Country"
+                                                formControlName="country">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <div class="input-group">
-                                        <span class="input-group-text text-light bg-dark"><i
-                                                class="bi bi-geo-alt"></i></span>
-                                        <input type="text" class="form-control" placeholder="Postal Code"
-                                            formControlName="address.postalCode">
+                                    <div class="col-6 mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text text-light bg-dark"><i
+                                                    class="bi bi-geo-alt"></i></span>
+                                            <input type="text" class="form-control" placeholder="Postal Code"
+                                                formControlName="postalCode">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -152,97 +176,8 @@
                 </div>
                 <!-- Signup Form -->
             </div>
-            <div class="col-3">
-                <div class="avatar-wrapper">
-                    <img src="../../assets/images/Designer.png" alt="Avatar" class="avatar-img">
-                </div>
-            </div>
         </div>
     </div>
 </section>
-
-
-
-
-<footer class="text-center text-lg-start text-muted bg-primary pt-3">
-    <!-- Section: Links  -->
-    <section class="">
-        <div class="container text-center text-md-start pt-4 pb-4">
-            <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-12 col-lg-3 col-sm-12 mb-2">
-                    <!-- Content -->
-                    <p class="mt-1 text-white">
-                        © 2024 Copyright: PRIT
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <!-- Links -->
-                    <h6 class="text-uppercase text-white fw-bold mb-2">
-                        Store
-                    </h6>
-                    <ul class="list-unstyled mb-4">
-                        <li><a class="text-white-50" href="#">About us</a></li>
-                        <li><a class="text-white-50" href="#">Find store</a></li>
-                        <li><a class="text-white-50" href="#">Categories</a></li>
-                        <li><a class="text-white-50" href="#">Blogs</a></li>
-                    </ul>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <!-- Links -->
-                    <h6 class="text-uppercase text-white fw-bold mb-2">
-                        Information
-                    </h6>
-                    <ul class="list-unstyled mb-4">
-                        <li><a class="text-white-50" href="#">Help center</a></li>
-                        <li><a class="text-white-50" href="#">Money refund</a></li>
-                        <li><a class="text-white-50" href="#">Shipping info</a></li>
-                        <li><a class="text-white-50" href="#">Refunds</a></li>
-                    </ul>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <!-- Links -->
-                    <h6 class="text-uppercase text-white fw-bold mb-2">
-                        Support
-                    </h6>
-                    <ul class="list-unstyled mb-4">
-                        <li><a class="text-white-50" href="#">Help center</a></li>
-                        <li><a class="text-white-50" href="#">Documents</a></li>
-                        <li><a class="text-white-50" href="#">Account restore</a></li>
-                        <li><a class="text-white-50" href="#">My orders</a></li>
-                    </ul>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-12 col-sm-12 col-lg-3">
-                    <!-- Links -->
-                    <h6 class="text-uppercase text-white fw-bold mb-2">Newsletter</h6>
-                    <p class="text-white">Stay in touch with latest updates about our products and offers</p>
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control border" placeholder="Email" aria-label="Email"
-                            aria-describedby="button-addon2" />
-                        <button class="btn btn-light border shadow-0" type="button" id="button-addon2"
-                            data-mdb-ripple-color="dark">
-                            Join
-                        </button>
-                    </div>
-                </div>
-                <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-        </div>
-    </section>
-    <!-- Section: Links  -->
-</footer>
+<app-footer></app-footer>
 <!-- Footer -->

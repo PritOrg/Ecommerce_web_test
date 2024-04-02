@@ -1,0 +1,9 @@
+.checkout-section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}

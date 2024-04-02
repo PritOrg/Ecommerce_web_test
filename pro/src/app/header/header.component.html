@@ -1,36 +1,36 @@
 <!--Main Navigation-->
-<header>
+<header class="">
     <!-- Jumbotron -->
-    <div class="p-3 text-center bg-white border-bottom">
+    <div class="p-3 text-center border-bottom">
         <div class="container">
             <div class="row gy-3">
                 <!-- Left elements -->
                 <div class="col-lg-2 col-sm-4 col-4">
-                    <a routerLink="https://mdbootstrap.com/" target="_blank" class="float-start">
-                        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
+                    <a routerLinkActive="/" class="float-start">
+                        <img src="../../assets/images/Designer.png" class="rounded-5" height="60" />
                     </a>
                 </div>
                 <!-- Left elements -->
 
                 <!-- Center elements -->
-                <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+                <div class="order-lg-last col-lg-5 col-sm-2 col-lg-2 justify-content-end">
                     <div class="d-flex float-end">
-                        <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                            class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i
-                                class="fas fa-user-alt m-1 me-md-2"></i>
+                        <a routerLink="/signin"
+                            class="me-1 border rounded py-1 px-3 d-flex align-items-center btn btn-outline-primary">
+                            <i class="fas fa-user-alt m-1 me-md-2"></i>
                             <p class="d-none d-md-block mb-0">Sign in</p>
                         </a>
-                        <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                            class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i
+                        <a routerLink="/wishlist"
+                            class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
                                 class="fas fa-heart m-1 me-md-2"></i>
                             <p class="d-none d-md-block mb-0">Wishlist</p>
                         </a>
-                        <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                            class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i
+                        <a routerLink="/cart" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
                                 class="fas fa-shopping-cart m-1 me-md-2"></i>
                             <p class="d-none d-md-block mb-0">My cart</p>
                         </a>
                     </div>
+                    <app-heart-switch class="m-3 p-2 justify-content-end" />
                 </div>
                 <!-- Center elements -->
 
@@ -38,8 +38,7 @@
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="input-group float-center">
                         <div class="form-outline">
-                            <input type="search" id="form1" class="form-control" />
-                            <label class="form-label" for="form1">Search</label>
+                            <input type="search" id="form1" placeholder="Search....." class="form-control" />
                         </div>
                         <button type="button" class="btn btn-primary shadow-0">
                             <i class="fas fa-search"></i>
@@ -53,11 +52,11 @@
     <!-- Jumbotron -->
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <!-- Container wrapper -->
         <div class="container justify-content-center justify-content-md-between">
             <!-- Toggle button -->
-            <button class="navbar-toggler border py-2 text-dark" type="button" data-mdb-toggle="collapse"
+            <button class="navbar-toggler border py-2 " type="button" data-mdb-toggle="collapse"
                 data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -68,45 +67,45 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
+                        <a class="nav-link " aria-current="page" routerLink="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" routerLink="/signup">Categories</a>
+                        <a class="nav-link " routerLink="/signup">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Hot offers</a>
+                        <a class="nav-link " routerLink="#">Hot offers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Gift boxes</a>
+                        <a class="nav-link " routerLink="#">Gift boxes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Projects</a>
+                        <a class="nav-link " routerLink="#">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Menu item</a>
+                        <a class="nav-link " routerLink="#">Menu item</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Menu name</a>
+                        <a class="nav-link " routerLink="#">Menu name</a>
                     </li>
                     <!-- Navbar dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle " routerLink="#" id="navbarDropdown" role="button"
                             data-mdb-toggle="dropdown" aria-expanded="false">
                             Others
                         </a>
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" routerLink="#">Action</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" routerLink="#">Another action</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" routerLink="#">Something else here</a>
                             </li>
                         </ul>
                     </li>

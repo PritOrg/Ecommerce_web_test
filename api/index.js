@@ -22,8 +22,8 @@ mongoose.connect(url)
             app.use('/api/orders', orderRoutes);
             app.use('/api/reviews', reviewRoutes);
 
-            app.listen(3030, (res) => {
-                console.log(`Server is running on http://localhost:3030`);
+            app.listen(1969, (res) => {
+                console.log(`Server is running on http://localhost:1969`);
             })
         }
     )

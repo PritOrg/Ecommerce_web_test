@@ -14,6 +14,8 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HeartSwitchComponent } from './heart-switch/heart-switch.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     BlogComponent,
     FooterComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    HeartSwitchComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

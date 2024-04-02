@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,23 +12,25 @@ import Swal from 'sweetalert2';
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     try {
       this.signupForm = this.fb.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
+        username: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         phoneNumber: [''],
         password: ['', Validators.required],
+        confirmPassword: ['', [Validators.required, this.passwordMatchValidator.bind(this)]],
         dateOfBirth: [''],
         address: this.fb.group({
-          street: ['a', Validators.required],
-          city: ['c', Validators.required],
-          state: ['e', Validators.required],
-          country: ['r', Validators.required],
-          postalCode: ['e', Validators.required]
+          street: ['', Validators.required],
+          city: ['', Validators.required],
+          state: ['', Validators.required],
+          country: ['', Validators.required],
+          postalCode: ['', Validators.required]
         }),
         newsletter: [false]
       });
@@ -36,6 +39,23 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const passwordControl = control.get('password');
+    const confirmPasswordControl = control.get('confirmPassword');
+
+    // If either control is null, return null
+    if (!passwordControl || !confirmPasswordControl) {
+      return null;
+    }
+
+    // If passwords match, return null
+    if (passwordControl.value === confirmPasswordControl.value) {
+      return null;
+    }
+
+    // If passwords don't match, return an error object
+    return { 'passwordsNotMatch': true };
+  }
   onSubmit() {
     console.log(this.signupForm.value)
     if (this.signupForm.invalid) {
@@ -62,14 +82,29 @@ export class SignupComponent implements OnInit {
       }
     }
 
-    this.http.post('http://localhost:3030/api/users', this.signupForm.value)
+    this.http.post('http://localhost:1969/api/users/signup', this.signupForm.value)
       .subscribe({
         next: (response) => {
           console.log('Signup successful', response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: formValue.email + " Signup Success",
+            position: 'top',
+            showConfirmButton: false,
+            timer: 2000 // Auto close after 2 seconds
+          });
+          this.router.navigate(['/signin']);
           // Optionally, redirect the user to another page
         },
         error: (error) => {
           console.error('Error during signup', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'SignUP Failed',
+          });
+          return;
           // Handle error (e.g., display error message to the user)
         }
       });

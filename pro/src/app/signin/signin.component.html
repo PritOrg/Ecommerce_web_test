@@ -1,33 +1,81 @@
-<app-header></app-header>
+<header>
+    <!-- Heading -->
+    <div class="bg-primary">
+        <div class="container py-4">
+            <!-- Breadcrumb -->
+            <nav class="d-flex">
+                <h6 class="mb-0">
+                    <a routerLink="/" class="text-white-50">H O M E</a>
+                    <span class="text-white-50 mx-2"> > </span>
+                    <a routerLinkActive="/signin" class="text-white-50">S I G N I N</a>
+                </h6>
+            </nav>
+            <!-- Breadcrumb -->
+        </div>
+    </div>
+    <!-- Heading -->
+</header>
 
-<section class="bg-light py-5">
+<section class="bg-light py-5 bg-dark ">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 mb-4">
-                <div class="card mb-4 border shadow-0">
-                    <div class="p-4">
-                        <h5 class="card-title mb-3">Sign In</h5>
-                        <form (ngSubmit)="signIn()" #signInForm="ngForm">
-                            <!-- Sign in form fields -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email" ngModel required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" ngModel
-                                    required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Sign In</button>
-                        </form>
+        <div class="col-xl-12 col-lg-12">
+            <div class="card mb-4 border shadow-0">
+                <div class="p-4 d-flex justify-content-between align-items-center">
+                    <div class="">
+                        <h5>Don't have an account?</h5>
+                        <p class="mb-0 text-wrap ">Join our community and embark on a journey of discovery.</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center flex-column flex-md-row">
+                        <a routerLink="/signup"
+                            class="btn btn-outline-primary me-0 me-md-2 mb-2 mb-md-0 w-100">Register</a>
+                        <a routerLinkActive="/signin" class="btn btn-primary shadow-0 text-nowrap w-100" disabled>Sign
+                            in</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-6 mb-4">
-                <!-- Placeholder for wallpaper or other content -->
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 mb-4">
+                <!-- Image on the left side -->
+                <div class="avatar-wrapper">
+                    <img src="../../assets/images/Designer.png" alt="Avatar" class="avatar-img">
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-auto mb-4" style="margin: 10% 4%;">
+                <!-- SignIn Form -->
+                <div class="card shadow-2 border">
+                    <div class="p-4">
+                        <h3 class="card-title mb-5">Sign in</h3>
+                        <form [formGroup]="signInFormData" (ngSubmit)="signIn()">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" placeholder="Email"
+                                            formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-light bg-dark"><i
+                                                class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            formControlName="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- SignIn Form -->
             </div>
         </div>
     </div>
 </section>
 
 <app-footer></app-footer>
+<!-- Footer -->

@@ -7,11 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductCardComponent {
   @Input()
-  product!: Product;
+  product:any;
 }
 
-interface Product {
-  name: string;
-  price: string;
-  imageUrl: string;
-}

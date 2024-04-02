@@ -1,0 +1,8 @@
+header {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.nav-link {
+    color: var(--text-color);
+}
