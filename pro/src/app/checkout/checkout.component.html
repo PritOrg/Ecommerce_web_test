@@ -1,64 +1,88 @@
-<app-header />
-<section class="h-100 h-custom">
-    <div class="container h-100 py-5">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+<header>
+    <!-- Heading -->
+    <div class="bg-primary" style="">
+        <div class="container py-4">
+            <!-- Breadcrumb -->
+            <nav class="d-flex">
+                <h6 class="mb-0">
+                    <a routerLink="/" class="text-white-50">H O M E</a>
+                    <span class="text-white-50 mx-2"> > </span>
+                    <a routerLinkActive="/checkout" class="text-white-50">C H E C K O U T</a>
+                </h6>
+            </nav>
+            <!-- Breadcrumb -->
+        </div>
+    </div>
+    <!-- Heading -->
+</header>
+<section class="bg-dark">
+    <div class="container py-5">
+        <h1 class="text-mute">Y O U R &nbsp;&nbsp;C A R T</h1>
+        <div class="row d-flex justify-content-center align-item-center">
             <div class="col">
 
-                <!-- Shopping Bag Table -->
-                <div class="table-responsive">
-                    <table class="table">
-                        <!-- Table header -->
-                        <thead>
-                            <tr>
-                                <th scope="col" class="h5">Shopping Bag</th>
-                                <th scope="col">Format</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <!-- Table body -->
-                        <tbody>
-                            <!-- Repeat for each bag item -->
-                            <tr *ngFor="let item of bagItems; let i = index">
-                                <th scope="row">
-                                    <div class="d-flex align-items-center">
-                                        <img [src]="item.imageUrl" class="img-fluid rounded-3" style="width: 120px;"
-                                            alt="Product Image">
-                                        <div class="flex-column ms-4">
-                                            <p class="mb-2">{{ item.name }}</p>
-                                            <p class="mb-0">{{ item.brand }}</p>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="align-middle">
-                                    <p class="mb-0">{{ item.format }}</p>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="d-flex flex-row">
-                                        <!-- Decrease quantity button -->
-                                        <button class="btn btn-link px-2" (click)="updateQuantity(i, false)">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <!-- Quantity input -->
-                                        <input type="number" class="form-control form-control-sm"
-                                            [(ngModel)]="item.quantity" (ngModelChange)="calculateTotals()"
-                                            style="width: 50px;">
-                                        <!-- Increase quantity button -->
-                                        <button class="btn btn-link px-2" (click)="updateQuantity(i, true)">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <p class="mb-0">{{ item.price * item.quantity | currency }}</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Shopping Bag bagItemss -->
+                <div class="row mb-4">
+                    <div class="row mb-4 rounded-4 p-2 custom-card" *ngFor="let item of bagItems">
+                        <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                            <!-- Image -->
+                            <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                                <img [src]="item.imageUrl" class="" style="width: 80%;" alt="Product Image" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                </a>
+                            </div>
+                            <!-- Image -->
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 mt-3">
+                            <!-- Data -->
+                            <h2 class=""><strong>{{ item.name }}</strong></h2>
+                            <p>Color: {{ item.color }}</p>
+                            <p>Size: {{ item.size }}</p>
+
+                            <!-- Action buttons -->
+                            <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                                title="Remove item">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                                title="Move to the wish list">
+                                <i class="fas fa-heart"></i> Add to wishlist
+                            </button>
+                            <!-- Action buttons -->
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 mt-3">
+                            <!-- Quantity -->
+                            <div class="d-flex mb-4" style="max-width: 300px">
+                                <button class="btn btn-primary px-3 me-2" (click)="decreaseQuantity(item)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+
+                                <div class="form-outline">
+                                    <input id="form1" [min]="1" name="quantity" [value]="item.quantity" type="number"
+                                        class="form-control" />
+                                    <label class="form-label" for="form1">Quantity</label>
+                                </div>
+
+                                <button class="btn btn-primary px-3 ms-2" (click)="increaseQuantity(item)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- Quantity -->
+
+                            <!-- Price -->
+                            <p class="text-start text-md-center">
+                                <strong>{{ item.price | currency }}</strong>
+                            </p>
+                            <!-- Price -->
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Payment Method Section -->
-                <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+                <div class="card shadow-2-strong mb-5 mb-lg-0 p-2 custom-card" style="border-radius: 16px;">
                     <div class="card-body p-4">
 
                         <!-- Payment Method Options -->

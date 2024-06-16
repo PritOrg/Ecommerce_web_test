@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeartSwitchComponent } from './heart-switch/heart-switch.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SigninComponent,
     SignupComponent,
     HeartSwitchComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

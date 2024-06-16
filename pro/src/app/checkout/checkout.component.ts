@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  bagItems: any[] = []; // Initialize bagItems array to store fetched items
+increaseQuantity(_t18: any) {
+throw new Error('Method not implemented.');
+}
+decreaseQuantity(_t18: any) {
+throw new Error('Method not implemented.');
+}
+  bagItems: any = []; // Initialize bagItems array to store fetched items
   subtotal: number = 0;
   total: number = 0;
 
@@ -43,7 +49,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   calculateTotals(): void {
-    this.subtotal = this.bagItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    this.subtotal = this.bagItems.reduce((acc: number, item: { price: number; quantity: number; }) => acc + (item.price * item.quantity), 0);
     this.total = this.subtotal + 2.99; // Add shipping fee for demonstration
   }
 }
